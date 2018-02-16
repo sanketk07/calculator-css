@@ -4,56 +4,60 @@
 	<title>Calculator using CSS Grid</title>
 	<style type="text/css">
 
+	*{
+		box-sizing: border-box;
+	}
+
+	@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+
+	body{
+		background: #f6f6f6;
+		padding-bottom: 30px;
+		padding-top: 30px;
+	}
+
 	.outer-calc-container{
-		border: 1px solid #000;
-		
+		max-width: 400px;
+		margin: 0 auto;
+		border: 2px solid #111;
+		border-radius: 5px;
+	}
+
+	.outer-calc-container input{
+		text-align: right;
+		font-size: 30px;
+		background: none;
+		border: none;
+		box-shadow: none;
+		width: 100%;
+		border-bottom: 2px solid #111;
+		padding: 20px;
+		font-family: 'Space Mono';
 	}
 	
 	.outer-container{
 		display: grid;
-		grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		border: 1px solid #2c3e50;
-		width: 400px;
-    	height: 400px;
-    	grid-column-gap: 15px;
-  		grid-row-gap: 15px;
-  		color: #fff;
-
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 15px;
+		padding: 20px;
 	}
 
 	.inner-keys{
-		border: 1px solid #2c3e50;
-		border-radius: 5px;
-		font-family: Helvetica;
 		
-		font-size: 2em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: grey;
+		background: rgba(0, 0, 0, 0.5);
+		border: 1px solid #111;
+		padding: 20px;
+		color: #eee;
+		border-radius: 5px;
+		font-size: 22px;
+		cursor: pointer;
+		font-family: 'Space Mono';
 	}
 
-	.display-screen{
-		border: 1px solid #2c3e50;	
-    	line-height: 3;
-		text-align: right;
-		width: 400px;
-		height: 100px;
-		font-family: Helvetica;
-		font-size: 2em;
-	}
-
-	.extra-width-keys{
-		grid-column: 1/ span 3;
-		border: 1px solid #2c3e50;
-		border-radius: 5px;
-		font-family: Helvetica;
-		
-		font-size: 2em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	.span3{
+  		grid-column: span 3;
+  		color: #fff;
+  		font-size: 22px;
 	}
 
 	.blue{
@@ -68,30 +72,28 @@
 		background-color: #777576;
 	}
 
-
 	</style>
 </head>
 <body>
 	<div class="outer-calc-container">
-		<div class="display-screen">0
-		</div>
+		<input type="number" class="display-screen" placeholder="0" />
 		<div class="outer-container">
-			<div class="extra-width-keys blue">C</div>
-			<div class="inner-keys">/</div>
-			<div class="inner-keys">7</div>
-			<div class="inner-keys">8</div>
-			<div class="inner-keys">9</div>
-			<div class="inner-keys">x</div>
-			<div class="inner-keys">4</div>
-			<div class="inner-keys">5</div>
-			<div class="inner-keys">6</div>
-			<div class="inner-keys">-</div>
-			<div class="inner-keys">1</div>
-			<div class="inner-keys">2</div>
-			<div class="inner-keys">3</div>
-			<div class="inner-keys">+</div>
-			<div class="extra-width-keys grey">0</div>
-			<div class="inner-keys green">=</div>
+			<button class="span3 blue">C</button>
+			<button class="inner-keys">&divide;</button>
+			<button class="inner-keys">7</button>
+			<button class="inner-keys">8</button>
+			<button class="inner-keys">9</button>
+			<button class="inner-keys">&times;</button>
+			<button class="inner-keys">4</button>
+			<button class="inner-keys">5</button>
+			<button class="inner-keys">6</button>
+			<button class="inner-keys">&minus;</button>
+			<button class="inner-keys">1</button>
+			<button class="inner-keys">2</button>
+			<button class="inner-keys">3</button>
+			<button class="inner-keys">&plus;</button>
+			<button class="span3 grey">0</button>
+			<button class="inner-keys green">&equals;</button>
 			
 		</div>
 	</div>
